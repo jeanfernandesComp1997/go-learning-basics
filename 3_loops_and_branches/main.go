@@ -34,6 +34,10 @@ func main() {
 	leap()
 
 	torch()
+
+	branchWithSwitch()
+
+	branchWithSwitchWithFallthrough()
 }
 
 func branching() {
@@ -85,5 +89,41 @@ func torch() {
 }
 
 func branchWithSwitch() {
+	fmt.Println("There is a cavern entrance here and a path to the east.")
+	var command = "go inside"
 
+	switch command {
+	case "go east":
+		fmt.Println("You head further up the montain.")
+	case "go inside":
+		fmt.Println("You enter the cave where you live out the rest of your life.")
+	case "read sign":
+		fmt.Println("The sign reads 'No Minors'.")
+	default:
+		fmt.Println("Didn't quite get that.")
+	}
+}
+
+func branchWithSwitchWithFallthrough() {
+	var room = "lake"
+
+	switch {
+	case room == "chave":
+		fmt.Println("You find yourself in a dimly lit cavern.")
+	case room == "lake":
+		fmt.Println("The ice seems solid enough.")
+		fallthrough
+	case room == "underwater":
+		fmt.Println("The water is freezing cold.")
+	}
+
+	switch room {
+	case "chave":
+		fmt.Println("You find yourself in a dimly lit cavern.")
+	case "lake":
+		fmt.Println("The ice seems solid enough.")
+		fallthrough
+	case "underwater":
+		fmt.Println("The water is freezing cold.")
+	}
 }
