@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -38,6 +40,10 @@ func main() {
 	branchWithSwitch()
 
 	branchWithSwitchWithFallthrough()
+
+	repetitionWithLoops()
+
+	loop2()
 }
 
 func branching() {
@@ -125,5 +131,32 @@ func branchWithSwitchWithFallthrough() {
 		fallthrough
 	case "underwater":
 		fmt.Println("The water is freezing cold.")
+	}
+}
+
+func repetitionWithLoops() {
+	var count = 10
+
+	for count > 0 {
+		fmt.Println(count)
+		time.Sleep(time.Second)
+		count--
+	}
+	fmt.Println("Liftoff")
+}
+
+func loop2() {
+	var degrees = 0
+
+	for {
+		fmt.Println(degrees)
+
+		degrees++
+		if degrees > 360 {
+			degrees = 0
+			if rand.Intn(2) == 0 {
+				break
+			}
+		}
 	}
 }
