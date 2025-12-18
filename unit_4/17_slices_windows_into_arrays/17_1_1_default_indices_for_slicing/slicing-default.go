@@ -33,6 +33,6 @@ func main() {
 	question := "¿Cómo estás?"
 	fmt.Println(question[:6])
 
-	colonizedPlanets := planets[2:4]
+	colonizedPlanets := terrestrial[2:]
 	fmt.Println(colonizedPlanets)
 }
