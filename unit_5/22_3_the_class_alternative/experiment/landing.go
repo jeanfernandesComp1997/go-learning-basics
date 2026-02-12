@@ -2,6 +2,7 @@ package main
 
 import (
 	"experiment/entity"
+	"fmt"
 )
 
 func main() {
@@ -40,4 +41,21 @@ func main() {
 		entity.Coordinate{D: 135, M: 54, S: 0, H: 'E'},
 	)
 	insight.Print()
+
+	// Distance calculations for all pairs
+	mars := entity.World{Radius: 3389.5}
+
+	fmt.Println("\n=== Distance Between All Location Pairs ===")
+
+	// Spirit to others
+	fmt.Printf("\nSpirit to Opportunity: %.2f km\n", mars.Distance(spirit, opportunity))
+	fmt.Printf("Spirit to Curiosity: %.2f km\n", mars.Distance(spirit, curiosity))
+	fmt.Printf("Spirit to InSight: %.2f km\n", mars.Distance(spirit, insight))
+
+	// Opportunity to others (excluding already calculated pairs)
+	fmt.Printf("\nOpportunity to Curiosity: %.2f km\n", mars.Distance(opportunity, curiosity))
+	fmt.Printf("Opportunity to InSight: %.2f km\n", mars.Distance(opportunity, insight))
+
+	// Curiosity to InSight
+	fmt.Printf("\nCuriosity to InSight: %.2f km\n", mars.Distance(curiosity, insight))
 }
