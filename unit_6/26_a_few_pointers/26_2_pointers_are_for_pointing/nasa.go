@@ -53,4 +53,8 @@ func main() {
 	fmt.Printf("%+v\n", timmy)
 	fmt.Println(timmy.superpower)
 	fmt.Println((*timmy).superpower)
+
+	superpowers := &[3]string{"flight", "invisibility", "super strength"}
+	fmt.Println(superpowers[0])
+	fmt.Println(superpowers[1:2])
 }
